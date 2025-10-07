@@ -9,27 +9,28 @@ public class Main2 {
     public static void main(String[] args) {
 
         try {
-            FileReader fileReader = new FileReader("src/main/resources/employees.csv");
+            FileReader fileReader = new FileReader("src/main/resources/employees.csv"); // for reading the file
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-            // Skip the header line (if your CSV has one)
-            bufferedReader.readLine();
+
+            bufferedReader.readLine(); // to skip the header line in cvs file
 
             String line;
 
-            while ((line = bufferedReader.readLine()) != null) {
+            // read each line, one by one, in a loop
+            while ((line = bufferedReader.readLine()) != null) { // read each line in a loop
 
-                // Split the line using the | symbol
+                // Split the line using the | symbol into smaller strings
                 String[] parts = line.split("\\|");
 
                 // Store each value in a variable
-                int id = Integer.parseInt(parts[0]);
-                String name = parts[1];
-                double hoursWorked = Double.parseDouble(parts[2]);
-                double payRate = Double.parseDouble(parts[3]);
+                int id = Integer.parseInt(parts[0]); // converting the string into an int, setting index to 0
+                String name = parts[1]; // setting index to 1
+                double hoursWorked = Double.parseDouble(parts[2]); // converting string into double, setting index to 2
+                double payRate = Double.parseDouble(parts[3]); // converting string into double, setting index to 3
 
                 // Create an Employee object
-                Employee employee = new Employee(id, name, hoursWorked, payRate);
+                Employee employee = new Employee(id, name, hoursWorked, payRate); // setting the constructor
 
                 // Print the employee info
                 System.out.println(employee.getEmployeeId() + " | " + employee.getName() + " | " + employee.getGrossPay());
@@ -40,7 +41,7 @@ public class Main2 {
         } catch (FileNotFoundException e) {
             System.out.println("File not found!");
         } catch (IOException e) {
-            System.out.println("Error reading file.");
+            System.out.println("Error reading the file.");
         }
     }
 }
