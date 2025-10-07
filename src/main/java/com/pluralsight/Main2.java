@@ -18,21 +18,6 @@ public class Main2 {
             }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         } catch (FileNotFoundException e) {
             System.out.println("Could not find this : " + e);
         } catch (IOException e) {
