@@ -33,7 +33,7 @@ public class Main2 {
                 Employee employee = new Employee(id, name, hoursWorked, payRate); // setting the constructor
 
                 // Print the employee info
-                System.out.println(employee.getEmployeeId() + " | " + employee.getName() + " | " + employee.getGrossPay());
+                System.out.printf("%d | %s | %.2f%n", employee.getEmployeeId(), employee.getName(), employee.getGrossPay());
             }
 
             bufferedReader.close();
