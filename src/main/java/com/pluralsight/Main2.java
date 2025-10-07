@@ -15,13 +15,13 @@ public class Main2 {
 
             bufferedReader.readLine(); // to skip the header line in cvs file
 
-            String line;
+            String input;
 
             // read each line, one by one, in a loop
-            while ((line = bufferedReader.readLine()) != null) { // read each line in a loop
+            while ((input = bufferedReader.readLine()) != null) { // read each line in a loop
 
                 // Split the line using the | symbol into smaller strings
-                String[] parts = line.split("\\|");
+                String[] parts = input.split("\\|");
 
                 // Store each value in a variable
                 int id = Integer.parseInt(parts[0]); // converting the string into an int, setting index to 0
