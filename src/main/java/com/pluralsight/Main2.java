@@ -1,19 +1,24 @@
 package com.pluralsight;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.util.Scanner;
 
 public class Main2 {
     public static void main(String[] args) {
 
         try {
+
+            // Read the employees.csv file
             FileReader fileReader = new FileReader("src/main/resources/employees.csv"); // for reading the file
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
+            // Create a writer to save payroll data
+            FileWriter fileWriter = new FileWriter("src/main/resources/payroll.txt"); // output file
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-            bufferedReader.readLine(); // to skip the header line in cvs file
+            // to skip the header line in CSV file
+            bufferedReader.readLine();
+
 
             String input;
 
@@ -34,14 +39,22 @@ public class Main2 {
 
                 // Print the employee info
                 System.out.printf("%d | %s | %.2f%n", employee.getEmployeeId(), employee.getName(), employee.getGrossPay());
+
+                // Write employee info to output file
+                bufferedWriter.write(employee.getEmployeeId() + "|" + employee.getName() + "|" + employee.getGrossPay());
+                bufferedWriter.newLine();
             }
 
+            // Close both readers and writers after finishing the loop
             bufferedReader.close();
+            bufferedWriter.close();
 
         } catch (FileNotFoundException e) {
             System.out.println("File not found!");
         } catch (IOException e) {
-            System.out.println("Error reading the file.");
+            System.out.println("Error reading or writing the file.");
         }
+
     }
+
 }
